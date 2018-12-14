@@ -92,7 +92,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                     let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
                     guard !(anchor is ARPlaneAnchor) else { return }
-                    self.updateText(text: textField?.text ?? "", hitResult: hitResult)
+                    self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
                 }))
                 // 4. Present the alert.
                 self.present(alert, animated: true, completion: nil)
@@ -100,16 +100,30 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         }
     }
     
-    func updateText(text: String, hitResult: ARHitTestResult) {
-        
-        let textGeometry = SCNText(string: text, extrusionDepth: 1.0)
-        textGeometry.firstMaterial?.diffuse.contents = UIColor.magenta
-        let textNode = SCNNode(geometry: textGeometry)
+//    func updateText(text: String, hitResult: hitTestResult) {
+//
+//        sceneView.scene.rootNode.addChildNode(textNode)
+//
+//    }
+    
+    func generateTextNode(text: String, hitResult: ARHitTestResult) -> SCNNode {
+        let text = SCNText(string: text, extrusionDepth: 1.0)
+        let textNode = SCNNode()
+        text.firstMaterial?.diffuse.contents = UIColor.magenta
         textNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
+        textNode.geometry = text
         textNode.constraints = [SCNBillboardConstraint()]
-        sceneView.scene.rootNode.addChildNode(textNode)
-        
+        return textNode
+    }
+    
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor, text:String, hitResult:ARHitTestResult) {
+        guard !(anchor is ARPlaneAnchor) else { return }
+        // dont need to call generateTextNode call set it as a global variable
+        let textNode = generateTextNode(text: text, hitResult: hitResult)
+        DispatchQueue.main.async {
+            node.addChildNode(textNode)
+        }
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
