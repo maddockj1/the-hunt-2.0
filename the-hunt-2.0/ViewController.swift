@@ -63,9 +63,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
         if let worldMap = worldMap {
             configuration.initialWorldMap = worldMap
-        } else {
-            return
-        }
+        } 
         
         sceneView.debugOptions = [.showFeaturePoints]
         sceneView.session.run(configuration, options: options)
@@ -185,7 +183,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             UserDefaults.standard.removeObject(forKey: "allHunts")
             allHunts.append(self.currentHunt)
             defaults.set(allHunts, forKey: "allHunts")
-            print(defaults.array(forKey: "allHunts"))
+            
         } else {
             defaults.set(["\(self.currentHunt)"], forKey: "allHunts")
         }
@@ -248,6 +246,22 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBAction func reset(_ button: UIButton) {
         resetTrackingConfiguration()
     }
+    
+//    func generateSphereNode() -> SCNNode {
+//        let sphere = SCNSphere(radius: 0.05)
+//        let sphereNode = SCNNode()
+//        sphereNode.position.y += Float(sphere.radius)
+//        sphereNode.geometry = sphere
+//        return sphereNode
+//    }
+//
+//    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+//        guard !(anchor is ARPlaneAnchor) else { return }
+//        let sphereNode = generateSphereNode()
+//        DispatchQueue.main.async {
+//            node.addChildNode(sphereNode)
+//        }
+//    }
     
 }
 
