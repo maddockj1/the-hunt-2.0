@@ -19,9 +19,11 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     
+    // Storage stuff
     let defaults = UserDefaults.standard
     var currentHunt = "First Hunt"
     
+    // Global var for the Text Node
     var textNode = SCNNode()
     
     
@@ -33,7 +35,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-//        self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        // self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -45,14 +47,14 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         super.viewWillAppear(animated)
         
         // Create a session configuration
-//        let configuration = ARWorldTrackingConfiguration()
+        // let configuration = ARWorldTrackingConfiguration()
         
         //enables horitzontal plane detection
         
-//        configuration.planeDetection = .horizontal
+        // configuration.planeDetection = .horizontal
         
         // Run the view's session
-//        sceneView.session.run(configuration)
+        // sceneView.session.run(configuration)
         resetTrackingConfiguration()
     }
     
@@ -76,6 +78,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         sceneView.session.pause()
     }
     
+    // TOUCH BEGAN
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         print("touch detected")
         if let touchLocation = touches.first?.location(in:sceneView){
@@ -92,7 +95,8 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
                     let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
                     guard !(anchor is ARPlaneAnchor) else { return }
-                    self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
+//                    self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
+                    self.textNode = self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
                 }))
                 // 4. Present the alert.
                 self.present(alert, animated: true, completion: nil)
@@ -105,7 +109,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
 //        sceneView.scene.rootNode.addChildNode(textNode)
 //
 //    }
-    
+    // GENERATE TEXT NODE
     func generateTextNode(text: String, hitResult: ARHitTestResult) -> SCNNode {
         let text = SCNText(string: text, extrusionDepth: 1.0)
         let textNode = SCNNode()
@@ -117,12 +121,11 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         return textNode
     }
     
-    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor, text:String, hitResult:ARHitTestResult) {
+    // RENDERER
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard !(anchor is ARPlaneAnchor) else { return }
-        // dont need to call generateTextNode call set it as a global variable
-        let textNode = generateTextNode(text: text, hitResult: hitResult)
         DispatchQueue.main.async {
-            node.addChildNode(textNode)
+            node.addChildNode(self.textNode)
         }
     }
     
@@ -144,10 +147,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             resetButton.layer.cornerRadius = 5
             //resetButton.clipsToBounds = true
         }
-        
-        
     }
-    
     
     @IBAction func saveExperience(_ button: UIButton) {
         let alertController = UIAlertController(title: "Add New Name", message: "", preferredStyle: UIAlertController.Style.alert)
@@ -159,7 +159,6 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             self.currentHunt = firstTextField.text!
             print(self.currentHunt)
             self.getTheCurrentWorldMap()
-            
         })
         
         alertController.addAction(saveAction)
@@ -174,7 +173,6 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             guard let worldMap = worldMap else {
                 return
             }
-            
             
             do {
                 try self.archive(worldMap: worldMap)
