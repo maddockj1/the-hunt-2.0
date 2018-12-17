@@ -17,7 +17,6 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var loadButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var deleteAllSaves: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     
     var worldMapURL: URL = {
@@ -44,8 +43,6 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // self.sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
         
         // Set the view's delegate
         sceneView.delegate = self
@@ -95,28 +92,21 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
                     let textField = alert?.textFields![0]
                     // Force unwrapping because we know it exists.
                     guard !(anchor is ARPlaneAnchor) else { return }
-//                    self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
                     self.textNode = self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
                     self.sceneView.session.add(anchor: anchor)
                 }))
-                // 4. Present the alert.
+                // Present the alert.
                 
                 self.present(alert, animated: true, completion: nil)
             }
         }
     }
     
-//    func updateText(text: String, hitResult: hitTestResult) {
-//
-//        sceneView.scene.rootNode.addChildNode(textNode)
-//
-//    }
     // GENERATE TEXT NODE
     func generateTextNode(text: String, hitResult: ARHitTestResult) -> SCNNode {
         let text = SCNText(string: text, extrusionDepth: 1.0)
         let textNode = SCNNode()
         text.firstMaterial?.diffuse.contents = UIColor.magenta
-        //textNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
         textNode.geometry = text
         textNode.constraints = [SCNBillboardConstraint()]
@@ -137,20 +127,15 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
                 self.loadButton.alpha = 1
                 self.saveButton.alpha = 1
                 self.resetButton.alpha = 1
-                self.deleteAllSaves.alpha = 1
             }else{
                 self.loadButton.alpha = 0
                 self.saveButton.alpha = 0
                 self.resetButton.alpha = 0
-                self.deleteAllSaves.alpha = 0
             }
             saveButton.layer.cornerRadius = 15
             saveButton.clipsToBounds = true
             loadButton.layer.cornerRadius = 10
-            deleteAllSaves.layer.cornerRadius = 10
-            //loadButton.clipsToBounds = true
             resetButton.layer.cornerRadius = 5
-            //resetButton.clipsToBounds = true
         }
     }
     
@@ -221,24 +206,5 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBAction func deleteSaves(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "allHunts")
     }
-    
-    
-//    func generateSphereNode() -> SCNNode {
-//        let sphere = SCNSphere(radius: 0.05)
-//        let sphereNode = SCNNode()
-//        sphereNode.position.y += Float(sphere.radius)
-//        sphereNode.geometry = sphere
-//        return sphereNode
-//    }
-//
-//    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-//        guard !(anchor is ARPlaneAnchor) else { return }
-//        let sphereNode = generateSphereNode()
-//        DispatchQueue.main.async {
-//            node.addChildNode(sphereNode)
-//        }
-//    }
-    
-    
 }
 
