@@ -17,6 +17,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var loadButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
+    @IBOutlet weak var deleteAllSaves: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     
     // Storage stuff
@@ -86,14 +87,13 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             
             if let hitResult = hitTestResults.first{
                 let anchor = ARAnchor(transform: hitResult.worldTransform)
-                
-                // addDot(at: hitResult)
                 let alert = UIAlertController(title: "Scavenger Hunt", message: "Add a clue!", preferredStyle: .alert)
                 alert.addTextField { (textField) in
                     textField.text = ""
                 }
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-                    let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+                    let textField = alert?.textFields![0]
+                    // Force unwrapping because we know it exists.
                     guard !(anchor is ARPlaneAnchor) else { return }
 //                    self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
                     self.textNode = self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
@@ -137,14 +137,17 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
                 self.loadButton.alpha = 1
                 self.saveButton.alpha = 1
                 self.resetButton.alpha = 1
+                self.deleteAllSaves.alpha = 1
             }else{
                 self.loadButton.alpha = 0
                 self.saveButton.alpha = 0
                 self.resetButton.alpha = 0
+                self.deleteAllSaves.alpha = 0
             }
             saveButton.layer.cornerRadius = 15
             saveButton.clipsToBounds = true
             loadButton.layer.cornerRadius = 10
+            deleteAllSaves.layer.cornerRadius = 10
             //loadButton.clipsToBounds = true
             resetButton.layer.cornerRadius = 5
             //resetButton.clipsToBounds = true
@@ -261,6 +264,11 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         resetTrackingConfiguration()
     }
     
+    @IBAction func deleteSaves(_ sender: Any) {
+        UserDefaults.standard.removeObject(forKey: "allHunts")
+    }
+    
+    
 //    func generateSphereNode() -> SCNNode {
 //        let sphere = SCNSphere(radius: 0.05)
 //        let sphereNode = SCNNode()
@@ -276,6 +284,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
 //            node.addChildNode(sphereNode)
 //        }
 //    }
+    
     
 }
 
