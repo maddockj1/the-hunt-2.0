@@ -207,6 +207,11 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             return nil
         }
     }
+    @IBAction func onUndoPress(_ sender: Any) {
+        let arrayOfNodes = self.sceneView.scene.rootNode.childNodes
+        let indexOfLastNode = arrayOfNodes.count - 1
+        arrayOfNodes[indexOfLastNode].removeFromParentNode()
+    }
     
     @IBAction func reset(_ button: UIButton) {
         resetTrackingConfiguration()
