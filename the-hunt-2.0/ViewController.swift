@@ -20,6 +20,15 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBOutlet weak var deleteAllSaves: UIButton!
     @IBOutlet weak var picker: UIPickerView!
     
+    var worldMapURL: URL = {
+        do {
+            return try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                .appendingPathComponent("worldMapURL")
+        } catch {
+            fatalError("Error getting world map URL from document directory.")
+        }
+    }()
+    
     // Storage stuff
     let defaults = UserDefaults.standard
     var currentHunt = "First Hunt"
@@ -47,15 +56,6 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Create a session configuration
-        // let configuration = ARWorldTrackingConfiguration()
-        
-        //enables horitzontal plane detection
-        
-        // configuration.planeDetection = .horizontal
-        
-        // Run the view's session
-        // sceneView.session.run(configuration)
         resetTrackingConfiguration()
     }
     
@@ -155,20 +155,19 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     }
     
     @IBAction func saveExperience(_ button: UIButton) {
-        let alertController = UIAlertController(title: "Add New Name", message: "", preferredStyle: UIAlertController.Style.alert)
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = "\(self.currentHunt)"
+        sceneView.session.getCurrentWorldMap { (worldMap, error) in
+            guard let worldMap = worldMap else {
+                return
+            }
+            
+            do {
+                try self.archive(worldMap: worldMap)
+                DispatchQueue.main.async {
+                }
+            } catch {
+                fatalError("Error saving world map: \(error.localizedDescription)")
+            }
         }
-        let saveAction = UIAlertAction(title: "Save", style: UIAlertAction.Style.default, handler: { alert -> Void in
-            let firstTextField = alertController.textFields![0] as UITextField
-            self.currentHunt = firstTextField.text!
-            print(self.currentHunt)
-            self.getTheCurrentWorldMap()
-        })
-        
-        alertController.addAction(saveAction)
-        
-        self.present(alertController, animated: true, completion: nil)
         
     }
     
@@ -191,73 +190,28 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     
     func archive(worldMap: ARWorldMap) throws {
         let data = try NSKeyedArchiver.archivedData(withRootObject: worldMap, requiringSecureCoding: true)
-        let dictionary : NSDictionary = [
-            "name": "\(self.currentHunt)",
-            "data": data]
-        
-        if var allHunts = defaults.array(forKey: "allHunts") {
-            print(allHunts)
-            UserDefaults.standard.removeObject(forKey: "allHunts")
-            allHunts.append(self.currentHunt)
-            defaults.set(allHunts, forKey: "allHunts")
-            
-        } else {
-            defaults.set(["\(self.currentHunt)"], forKey: "allHunts")
-        }
-        
-        defaults.set(dictionary, forKey: "\(self.currentHunt)")
+        try data.write(to: self.worldMapURL, options: [.atomic])
         
     }
     
     @IBAction func loadExperience(_ button: UIButton) {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        if let maps = defaults.array(forKey: "allHunts") {
-            if maps.count > 0 {
-                let saved1 = maps[0]
-                alert.addAction(UIAlertAction(title: "\(saved1)", style: .default) { _ in
-                    let dict = self.defaults.dictionary(forKey: "\(saved1)")
-                    let worldMapData = dict?["data"]! as? Data
-                    let worldMap = self.unarchive(worldMapData: worldMapData!)
-                    self.resetTrackingConfiguration(with: worldMap)
-                })
-            }
-            
-            if maps.count > 1 {
-                let saved2 = maps[1]
-                alert.addAction(UIAlertAction(title: "\(saved2)", style: .default) { _ in
-                    
-                    let dict = self.defaults.dictionary(forKey: "\(saved2)")
-                    let worldMapData = dict?["data"]! as? Data
-                    let worldMap = self.unarchive(worldMapData: worldMapData!)
-                    self.resetTrackingConfiguration(with: worldMap)
-                })
-            }
-            
-            if maps.count > 2 {
-                let saved3 = maps[2]
-                alert.addAction(UIAlertAction(title: "\(saved3)", style: .default) { _ in
-                    
-                    let dict = self.defaults.dictionary(forKey: "\(saved3)")
-                    let worldMapData = dict?["data"]! as? Data
-                    let worldMap = self.unarchive(worldMapData: worldMapData!)
-                    self.resetTrackingConfiguration(with: worldMap)
-                })
-            }
-        }
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            print("Cancel")
-        })
-        
-        present(alert, animated: true)
-        
+        guard let worldMapData = retrieveWorldMapData(from: worldMapURL),
+            let worldMap = unarchive(worldMapData: worldMapData) else { return }
+        resetTrackingConfiguration(with: worldMap)
     }
     
     func unarchive(worldMapData data: Data) -> ARWorldMap? {
         guard let unarchievedObject = try? NSKeyedUnarchiver.unarchivedObject(ofClass: ARWorldMap.self, from: data),
             let worldMap = unarchievedObject else { return nil }
         return worldMap
+    }
+    
+    func retrieveWorldMapData(from url: URL) -> Data? {
+        do {
+            return try Data(contentsOf: self.worldMapURL)
+        } catch {
+            return nil
+        }
     }
     
     @IBAction func reset(_ button: UIButton) {
