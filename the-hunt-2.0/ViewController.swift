@@ -10,7 +10,7 @@ import UIKit
 import SceneKit
 import ARKit
 
-class ViewController: UIViewController, ARSCNViewDelegate  {
+class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
     
     //variable declarations!
     @IBOutlet weak var sceneView: ARSCNView!
@@ -18,6 +18,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBOutlet weak var loadButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var status: UIButton!
     
     var worldMapURL: URL = {
         do {
@@ -52,6 +53,8 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         
         // Set the view's delegate
         sceneView.delegate = self
+        
+        self.sceneView.session.delegate = self
         
         sceneView.autoenablesDefaultLighting = true
         DispatchQueue.main.async{
@@ -226,5 +229,23 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBAction func reset(_ button: UIButton) {
         resetTrackingConfiguration()
     }
+    
+
+    func session(_ session: ARSession, didUpdate frame: ARFrame) {
+            switch frame.worldMappingStatus {
+            case .notAvailable:
+                status.backgroundColor = UIColor.red
+                status.layer.cornerRadius = 15
+            case .limited:
+                status.backgroundColor = UIColor.red
+                status.layer.cornerRadius = 15
+            case .extending:
+                status.backgroundColor = UIColor.yellow
+                status.layer.cornerRadius = 15
+            case .mapped:
+                status.backgroundColor = UIColor.green
+                status.layer.cornerRadius = 15
+            }
+        }
 }
 

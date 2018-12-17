@@ -94,6 +94,10 @@
                                     <action selector="onHuntBtnPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="URK-Fe-ahP"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rs4-hr-4Xw">
+                                <rect key="frame" x="172" y="30" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -115,6 +119,7 @@
                         <outlet property="resetButton" destination="JwQ-MU-sYs" id="BYp-ib-2Fx"/>
                         <outlet property="saveButton" destination="8N2-AP-Roz" id="HKS-GH-K6x"/>
                         <outlet property="sceneView" destination="vcq-0e-sX9" id="R6P-6f-YkB"/>
+                        <outlet property="status" destination="rs4-hr-4Xw" id="fYu-iM-HMM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
