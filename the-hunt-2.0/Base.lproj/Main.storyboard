@@ -77,17 +77,6 @@
                                     <constraint firstAttribute="trailing" secondItem="tzG-Do-kC4" secondAttribute="trailing" id="rbL-PT-VDG"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTb-kW-Wqg">
-                                <rect key="frame" x="255" y="57" width="85" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="DeleteSaves">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="deleteSaves:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VoM-ZJ-lXd"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -101,7 +90,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="deleteAllSaves" destination="fTb-kW-Wqg" id="wBR-by-8IL"/>
                         <outlet property="loadButton" destination="tzG-Do-kC4" id="jCJ-PQ-lDI"/>
                         <outlet property="resetButton" destination="JwQ-MU-sYs" id="BYp-ib-2Fx"/>
                         <outlet property="saveButton" destination="8N2-AP-Roz" id="HKS-GH-K6x"/>

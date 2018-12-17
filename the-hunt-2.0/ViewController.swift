@@ -202,9 +202,5 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     @IBAction func reset(_ button: UIButton) {
         resetTrackingConfiguration()
     }
-    
-    @IBAction func deleteSaves(_ sender: Any) {
-        UserDefaults.standard.removeObject(forKey: "allHunts")
-    }
 }
 
