@@ -104,14 +104,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RMV-bW-qD4">
-                                <rect key="frame" x="67" y="93" width="255" height="430"/>
+                                <rect key="frame" x="67" y="93" width="255" height="542.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.72376665609137059" green="0.63027283600206907" blue="0.40730886590104282" alpha="0.90715967465753422" colorSpace="custom" customColorSpace="displayP3"/>
                                 <string key="text">Welcome to The Hunt! 
- Here is your guide to becoming a Tresure HuntARRRRRR.     
+
+ Here is your guide to becoming a Tresure HuntARRRRRR.
+     
 1. Move your phone around to help map the room. 
+
 2. Tap phone to place a point and write a hint! 
- 3. Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.</string>
+
+ 3. Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.
+
+4. Press the "the HUNT" button in the top left to being!</string>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" name="TreasureMapDeadhand" family="Treasure Map Deadhand" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
