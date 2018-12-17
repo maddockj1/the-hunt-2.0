@@ -60,7 +60,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     
     func resetTrackingConfiguration(with worldMap: ARWorldMap? = nil) {
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = [.horizontal]
+        configuration.planeDetection = [.horizontal, .vertical]
         
         let options: ARSession.RunOptions = [.resetTracking, .removeExistingAnchors]
         if let worldMap = worldMap {
@@ -86,7 +86,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
             
             if let hitResult = hitTestResults.first{
                 let anchor = ARAnchor(transform: hitResult.worldTransform)
-                sceneView.session.add(anchor: anchor)
+                
                 // addDot(at: hitResult)
                 let alert = UIAlertController(title: "Scavenger Hunt", message: "Add a clue!", preferredStyle: .alert)
                 alert.addTextField { (textField) in
@@ -97,8 +97,10 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
                     guard !(anchor is ARPlaneAnchor) else { return }
 //                    self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
                     self.textNode = self.generateTextNode(text: textField?.text ?? "", hitResult: hitResult)
+                    self.sceneView.session.add(anchor: anchor)
                 }))
                 // 4. Present the alert.
+                
                 self.present(alert, animated: true, completion: nil)
             }
         }
@@ -114,7 +116,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
         let text = SCNText(string: text, extrusionDepth: 1.0)
         let textNode = SCNNode()
         text.firstMaterial?.diffuse.contents = UIColor.magenta
-        textNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
+        //textNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
         textNode.geometry = text
         textNode.constraints = [SCNBillboardConstraint()]
