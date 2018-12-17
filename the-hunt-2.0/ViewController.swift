@@ -128,7 +128,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
     func generateTextNode(text: String, hitResult: ARHitTestResult) -> SCNNode {
         let text = SCNText(string: text, extrusionDepth: 1.0)
         let textNode = SCNNode()
-        text.firstMaterial?.diffuse.contents = UIColor.magenta
+        text.firstMaterial?.diffuse.contents = UIColor(displayP3Red: 236/255, green: 205/255, blue: 135/255, alpha: 1.0)
+        text.font = UIFont(name: "Snell Roundhand", size: 12)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
         textNode.geometry = text
         textNode.constraints = [SCNBillboardConstraint()]

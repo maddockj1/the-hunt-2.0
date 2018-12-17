@@ -22,6 +22,7 @@
 		9A1F4C0421C4537200652CBB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A1F4C0721C4537200652CBB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A1F4C0921C4537200652CBB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9A30D2B421C8541000549AB5 /* TreasureRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = TreasureRegular.ttf; path = ../../../../../../Downloads/TreasureRegular.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				9A1F4BFD21C4537100652CBB /* AppDelegate.swift */,
+				9A30D2B321C853D200549AB5 /* font */,
 				9A1F4BFF21C4537100652CBB /* ViewController.swift */,
 				9A1F4C0121C4537100652CBB /* Main.storyboard */,
 				9A1F4C0421C4537200652CBB /* Assets.xcassets */,
@@ -62,6 +64,14 @@
 				9A1F4C0921C4537200652CBB /* Info.plist */,
 			);
 			path = "the-hunt-2.0";
+			sourceTree = "<group>";
+		};
+		9A30D2B321C853D200549AB5 /* font */ = {
+			isa = PBXGroup;
+			children = (
+				9A30D2B421C8541000549AB5 /* TreasureRegular.ttf */,
+			);
+			path = font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
