@@ -44,7 +44,7 @@ class ViewController: UIViewController, ARSCNViewDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
         //ALERT Instuructions
-        let startAlert = UIAlertController(title: "Welcome to The Hunt! An ARRRRRRR Scavenger Hunt Adventure", message: "Guide to become a Tresure HuntAR. 1.Move phone around to help get it's orientation in space. 2.Tap phone to place a point and write a hint in the alert. 3.Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.", preferredStyle: .alert)
+        let startAlert = UIAlertController(title: "Welcome to The Hunt! An ARRRRRRR Scavenger Hunt Adventure", message: "Guide to become a Tresure HuntAR.     1. Move phone around to help get it's orientation in space.                              2. Tap phone to place a point and write a hint in the alert.                                    3. Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "StARt the Hunt", style: .default)
         let EndAction = UIAlertAction(title: "Walk the Plank", style: .default)
         startAlert.addAction(OKAction)
