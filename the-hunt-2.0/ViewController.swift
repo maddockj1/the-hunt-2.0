@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  the-hunt
 //
-//  Created by John Maddock on 12/12/18.
+//  Created by John Maddock, Christa Sparks, and Andy Chuong on 12/12/18.
 //  Copyright © 2018 John Maddock. All rights reserved.
 //
 
@@ -17,8 +17,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var loadButton: UIButton!
     @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var picker: UIPickerView!
     @IBOutlet weak var status: UIButton!
+    @IBOutlet weak var scroll: UIImageView!
     
     var worldMapURL: URL = {
         do {
@@ -44,32 +44,17 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //ALERT Instuructions
-        let startAlert = UIAlertController(title: "Welcome to The Hunt! An ARRRRRRR Scavenger Hunt Adventure", message: "Guide to become a Tresure HuntAR.     1. Move phone around to help get it's orientation in space.                              2. Tap phone to place a point and write a hint in the alert.                                    3. Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "StARt the Hunt", style: .default)
-        let EndAction = UIAlertAction(title: "Walk the Plank", style: .default)
-        startAlert.addAction(OKAction)
-        startAlert.addAction(EndAction)
-        
+   
         // Set the view's delegate
         sceneView.delegate = self
         
         self.sceneView.session.delegate = self
         
         sceneView.autoenablesDefaultLighting = true
-        DispatchQueue.main.async{
-            self.present(startAlert, animated:true, completion: nil)
-        }
     }
     
     @IBAction func onHuntBtnPress(_ sender: Any) {
-        let startAlert = UIAlertController(title: "Welcome to The Hunt! An ARRRRRRR Scavenger Hunt Adventure", message: "Guide to become a Tresure HuntAR.     1. Move phone around to help get it's orientation in space.                              2. Tap phone to place a point and write a hint in the alert.                                    3. Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.", preferredStyle: .alert)
-        let OKAction = UIAlertAction(title: "StARt the Hunt", style: .default)
-        let EndAction = UIAlertAction(title: "Walk the Plank", style: .default)
-        startAlert.addAction(OKAction)
-        startAlert.addAction(EndAction)
-        
-        self.present(startAlert, animated:true, completion: nil)
+        scroll.isHidden = !scroll.isHidden
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -129,14 +114,14 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
         let text = SCNText(string: text, extrusionDepth: 1.0)
         let textNode = SCNNode()
         text.firstMaterial?.diffuse.contents = UIColor(displayP3Red: 236/255, green: 205/255, blue: 135/255, alpha: 1.0)
-        text.font = UIFont(name: "Snell Roundhand", size: 12)
+        text.font = UIFont(name: "Treasure Map Deadhand", size: 12)
         textNode.scale = SCNVector3(0.01, 0.01, 0.01)
         textNode.geometry = text
         textNode.constraints = [SCNBillboardConstraint()]
         return textNode
     }
     
-    // RENDERER
+    // RENDERERERERERERER
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
         guard !(anchor is ARPlaneAnchor) else { return }
         DispatchQueue.main.async {

@@ -9,11 +9,6 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="TreasureRegular.ttf">
-            <string>TreasureMapDeadhand</string>
-        </array>
-    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,77 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0e-sX9">
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0e-sX9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </arscnView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyr-Hl-36I" userLabel="buttons">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dyr-Hl-36I" userLabel="buttons">
                                 <rect key="frame" x="45" y="603" width="285" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-AP-Roz">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-AP-Roz">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="80" id="UFb-Yr-Omo"/>
-                                            <constraint firstAttribute="height" constant="44" id="yGP-aY-rJK"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="save"/>
                                         <connections>
                                             <action selector="saveExperience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LKb-Mk-oWI"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzG-Do-kC4">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzG-Do-kC4">
                                         <rect key="frame" x="204" y="0.0" width="81" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="XaC-Nk-a5l"/>
-                                            <constraint firstAttribute="width" constant="81" id="cgt-52-0Q4"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="load"/>
                                         <connections>
                                             <action selector="loadExperience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WY0-13-AHO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwQ-MU-sYs">
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwQ-MU-sYs">
                                         <rect key="frame" x="102" y="0.0" width="81" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="81" id="1hY-Ov-YEl"/>
-                                            <constraint firstAttribute="height" constant="44" id="8yC-CD-Wff"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="reset"/>
                                         <connections>
                                             <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eux-Ci-G1z"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="JwQ-MU-sYs" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="0dy-l5-0u0"/>
-                                    <constraint firstItem="tzG-Do-kC4" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="92y-yE-aeR"/>
-                                    <constraint firstAttribute="height" constant="44" id="Cso-p8-F1p"/>
-                                    <constraint firstAttribute="bottom" secondItem="JwQ-MU-sYs" secondAttribute="bottom" id="Ez4-FB-cft"/>
-                                    <constraint firstAttribute="trailing" secondItem="tzG-Do-kC4" secondAttribute="trailing" id="Gzt-0s-63L"/>
-                                    <constraint firstItem="JwQ-MU-sYs" firstAttribute="centerX" secondItem="Dyr-Hl-36I" secondAttribute="centerX" id="T3k-Ke-sR6"/>
-                                    <constraint firstAttribute="bottom" secondItem="tzG-Do-kC4" secondAttribute="bottom" id="XKt-Wd-lKL"/>
-                                    <constraint firstAttribute="width" constant="285" id="Zb6-Nd-pO9"/>
-                                    <constraint firstAttribute="bottom" secondItem="8N2-AP-Roz" secondAttribute="bottom" id="gVJ-38-KRh"/>
-                                    <constraint firstItem="8N2-AP-Roz" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="qZW-tG-UmR"/>
-                                    <constraint firstItem="8N2-AP-Roz" firstAttribute="leading" secondItem="Dyr-Hl-36I" secondAttribute="leading" id="rcQ-oC-COs"/>
-                                </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhz-jB-275" userLabel="Undo Button">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uhz-jB-275" userLabel="Undo Button">
                                 <rect key="frame" x="284" y="20" width="75" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="QX5-qH-d9j"/>
-                                    <constraint firstAttribute="width" constant="75" id="cPt-Bx-bPg"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="undo"/>
                                 <connections>
                                     <action selector="onUndoPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uuY-T6-ya2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvR-34-V8m">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bvR-34-V8m">
                                 <rect key="frame" x="16" y="20" width="90" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="tYM-tq-nPf"/>
-                                    <constraint firstAttribute="height" constant="40" id="xtv-ly-UPh"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="thehunt"/>
                                 <connections>
                                     <action selector="onHuntBtnPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="URK-Fe-ahP"/>
@@ -103,38 +72,19 @@
                                 <rect key="frame" x="172" y="30" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RMV-bW-qD4">
-                                <rect key="frame" x="67" y="93" width="255" height="542.5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.72376665609137059" green="0.63027283600206907" blue="0.40730886590104282" alpha="0.90715967465753422" colorSpace="custom" customColorSpace="displayP3"/>
-                                <string key="text">Welcome to The Hunt! 
-
- Here is your guide to becoming a Tresure HuntARRRRRR.
-     
-1. Move your phone around to help map the room. 
-
-2. Tap phone to place a point and write a hint! 
-
- 3. Shake phone to see menu where you can save, load and reset your ScavengAR Hunt.
-
-4. Press the "the HUNT" button in the top left to being!</string>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <fontDescription key="fontDescription" name="TreasureMapDeadhand" family="Treasure Map Deadhand" pointSize="21"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thehuntinstruc" translatesAutoresizingMaskIntoConstraints="NO" id="xGV-7e-ne6">
+                                <rect key="frame" x="16" y="44" width="343" height="579"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="1Ua-Hp-bep"/>
+                                    <constraint firstAttribute="height" constant="579" id="rcz-d1-QVo"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bvR-34-V8m" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1RI-Pe-moE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="uhz-jB-275" secondAttribute="trailing" constant="16" id="4hx-Nd-eBd"/>
-                            <constraint firstItem="vcq-0e-sX9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8Hi-WI-XFN"/>
-                            <constraint firstItem="vcq-0e-sX9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I7v-im-8gM"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dyr-Hl-36I" secondAttribute="bottom" constant="20" id="J2L-gS-O6A"/>
-                            <constraint firstItem="bvR-34-V8m" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RsE-eT-hfr"/>
-                            <constraint firstItem="vcq-0e-sX9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YhV-6a-Iqp"/>
-                            <constraint firstItem="uhz-jB-275" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="aF1-Dr-bZy"/>
-                            <constraint firstItem="Dyr-Hl-36I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b0P-gE-bV7"/>
-                            <constraint firstItem="vcq-0e-sX9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kp1-nu-irF"/>
+                            <constraint firstItem="xGV-7e-ne6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AD0-A9-6Px"/>
+                            <constraint firstItem="xGV-7e-ne6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hqv-gz-bzT"/>
+                            <constraint firstItem="xGV-7e-ne6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ydR-AO-flK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -143,6 +93,7 @@
                         <outlet property="resetButton" destination="JwQ-MU-sYs" id="BYp-ib-2Fx"/>
                         <outlet property="saveButton" destination="8N2-AP-Roz" id="HKS-GH-K6x"/>
                         <outlet property="sceneView" destination="vcq-0e-sX9" id="R6P-6f-YkB"/>
+                        <outlet property="scroll" destination="xGV-7e-ne6" id="wq1-1n-QLE"/>
                         <outlet property="status" destination="rs4-hr-4Xw" id="fYu-iM-HMM"/>
                     </connections>
                 </viewController>
@@ -156,6 +107,7 @@
         <image name="reset" width="500" height="250"/>
         <image name="save" width="500" height="250"/>
         <image name="thehunt" width="500" height="250"/>
+        <image name="thehuntinstruc" width="857" height="1097"/>
         <image name="undo" width="500" height="250"/>
     </resources>
 </document>
