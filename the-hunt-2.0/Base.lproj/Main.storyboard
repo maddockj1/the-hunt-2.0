@@ -90,6 +90,9 @@
                                     <constraint firstAttribute="height" constant="40" id="xtv-ly-UPh"/>
                                 </constraints>
                                 <state key="normal" image="thehunt"/>
+                                <connections>
+                                    <action selector="onHuntBtnPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="URK-Fe-ahP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
