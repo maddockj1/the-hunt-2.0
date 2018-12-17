@@ -12,6 +12,7 @@
 		9A1F4C0321C4537100652CBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1F4C0121C4537100652CBB /* Main.storyboard */; };
 		9A1F4C0521C4537200652CBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A1F4C0421C4537200652CBB /* Assets.xcassets */; };
 		9A1F4C0821C4537200652CBB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A1F4C0621C4537200652CBB /* LaunchScreen.storyboard */; };
+		9A7154C921C86841002FC5EE /* TreasureRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9A30D2B421C8541000549AB5 /* TreasureRegular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A7154C921C86841002FC5EE /* TreasureRegular.ttf in Resources */,
 				9A1F4C0821C4537200652CBB /* LaunchScreen.storyboard in Resources */,
 				9A1F4C0521C4537200652CBB /* Assets.xcassets in Resources */,
 				9A1F4C0321C4537100652CBB /* Main.storyboard in Resources */,
