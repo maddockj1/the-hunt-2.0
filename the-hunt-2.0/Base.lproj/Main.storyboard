@@ -1,104 +1,116 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-<device id="retina4_7" orientation="portrait">
-<adaptation id="fullscreen"/>
-</device>
-<dependencies>
-<deployment identifier="iOS"/>
-<plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
-<capability name="Safe area layout guides" minToolsVersion="9.0"/>
-<capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
-</dependencies>
-<scenes>
-<!--View Controller-->
-<scene sceneID="tne-QT-ifu">
-<objects>
-<viewController id="BYZ-38-t0r" customClass="ViewController" customModule="the_hunt" customModuleProvider="target" sceneMemberID="viewController">
-<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="ARSceneView">
-<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-<subviews>
-<arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0e-sX9">
-<rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-</arscnView>
-<view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyr-Hl-36I" userLabel="buttons">
-<rect key="frame" x="45" y="603" width="285" height="44"/>
-<subviews>
-<button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-AP-Roz">
-<rect key="frame" x="0.0" y="0.0" width="90" height="44"/>
-<color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-<constraints>
-<constraint firstAttribute="height" constant="44" id="1us-12-IpG"/>
-<constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="kB5-Fz-kON"/>
-</constraints>
-<fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="27"/>
-<state key="normal" title="Save">
-<color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-</state>
-<connections>
-<action selector="saveExperience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LKb-Mk-oWI"/>
-</connections>
-</button>
-<button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzG-Do-kC4">
-<rect key="frame" x="195" y="0.0" width="90" height="44"/>
-<color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-<constraints>
-<constraint firstAttribute="height" constant="44" id="2jE-IY-aBg"/>
-</constraints>
-<fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="27"/>
-<state key="normal" title="Load">
-<color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-</state>
-<connections>
-<action selector="loadExperience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WY0-13-AHO"/>
-</connections>
-</button>
-<button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwQ-MU-sYs">
-<rect key="frame" x="125" y="7" width="35" height="30"/>
-<autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-<color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-<state key="normal" title="reset">
-<color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-</state>
-<connections>
-<action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eux-Ci-G1z"/>
-</connections>
-</button>
-</subviews>
-<constraints>
-<constraint firstItem="8N2-AP-Roz" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="4GR-zV-mDR"/>
-<constraint firstAttribute="bottom" secondItem="tzG-Do-kC4" secondAttribute="bottom" id="Cpi-dm-lMB"/>
-<constraint firstAttribute="height" constant="44" id="Cso-p8-F1p"/>
-<constraint firstItem="tzG-Do-kC4" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="Ghk-ek-KKb"/>
-<constraint firstItem="8N2-AP-Roz" firstAttribute="leading" secondItem="Dyr-Hl-36I" secondAttribute="leading" id="M50-Mg-C0Y"/>
-<constraint firstAttribute="bottom" secondItem="8N2-AP-Roz" secondAttribute="bottom" id="Rbi-pl-j7H"/>
-<constraint firstAttribute="width" constant="285" id="Zb6-Nd-pO9"/>
-<constraint firstAttribute="trailing" secondItem="tzG-Do-kC4" secondAttribute="trailing" id="cfl-yO-C8k"/>
-<constraint firstAttribute="trailing" secondItem="tzG-Do-kC4" secondAttribute="trailing" id="rbL-PT-VDG"/>
-</constraints>
-</view>
-</subviews>
-<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-<constraints>
-<constraint firstItem="vcq-0e-sX9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8Hi-WI-XFN"/>
-<constraint firstItem="vcq-0e-sX9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I7v-im-8gM"/>
-<constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dyr-Hl-36I" secondAttribute="bottom" constant="20" id="J2L-gS-O6A"/>
-<constraint firstItem="vcq-0e-sX9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YhV-6a-Iqp"/>
-<constraint firstItem="Dyr-Hl-36I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b0P-gE-bV7"/>
-<constraint firstItem="vcq-0e-sX9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kp1-nu-irF"/>
-</constraints>
-<viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-</view>
-<connections>
-<outlet property="loadButton" destination="tzG-Do-kC4" id="jCJ-PQ-lDI"/>
-<outlet property="resetButton" destination="JwQ-MU-sYs" id="BYp-ib-2Fx"/>
-<outlet property="saveButton" destination="8N2-AP-Roz" id="HKS-GH-K6x"/>
-<outlet property="sceneView" destination="vcq-0e-sX9" id="R6P-6f-YkB"/>
-</connections>
-</viewController>
-<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-</objects>
-<point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
-</scene>
-</scenes>
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="the_hunt_2_0" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="ARSceneView">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0e-sX9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </arscnView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dyr-Hl-36I" userLabel="buttons">
+                                <rect key="frame" x="45" y="603" width="285" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8N2-AP-Roz">
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="44"/>
+                                        <color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="1us-12-IpG"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="kB5-Fz-kON"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="27"/>
+                                        <state key="normal" title="Save">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveExperience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LKb-Mk-oWI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tzG-Do-kC4">
+                                        <rect key="frame" x="195" y="0.0" width="90" height="44"/>
+                                        <color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="2jE-IY-aBg"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="27"/>
+                                        <state key="normal" title="Load">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="loadExperience:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WY0-13-AHO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JwQ-MU-sYs">
+                                        <rect key="frame" x="125" y="7" width="35" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="reset">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="reset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eux-Ci-G1z"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="8N2-AP-Roz" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="4GR-zV-mDR"/>
+                                    <constraint firstAttribute="bottom" secondItem="tzG-Do-kC4" secondAttribute="bottom" id="Cpi-dm-lMB"/>
+                                    <constraint firstAttribute="height" constant="44" id="Cso-p8-F1p"/>
+                                    <constraint firstItem="tzG-Do-kC4" firstAttribute="top" secondItem="Dyr-Hl-36I" secondAttribute="top" id="Ghk-ek-KKb"/>
+                                    <constraint firstItem="8N2-AP-Roz" firstAttribute="leading" secondItem="Dyr-Hl-36I" secondAttribute="leading" id="M50-Mg-C0Y"/>
+                                    <constraint firstAttribute="bottom" secondItem="8N2-AP-Roz" secondAttribute="bottom" id="Rbi-pl-j7H"/>
+                                    <constraint firstAttribute="width" constant="285" id="Zb6-Nd-pO9"/>
+                                    <constraint firstAttribute="trailing" secondItem="tzG-Do-kC4" secondAttribute="trailing" id="cfl-yO-C8k"/>
+                                    <constraint firstAttribute="trailing" secondItem="tzG-Do-kC4" secondAttribute="trailing" id="rbL-PT-VDG"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTb-kW-Wqg">
+                                <rect key="frame" x="255" y="57" width="85" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.91709250210000004" green="0.19738528129999999" blue="0.85494297740000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="DeleteSaves">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="deleteSaves:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VoM-ZJ-lXd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="vcq-0e-sX9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="8Hi-WI-XFN"/>
+                            <constraint firstItem="vcq-0e-sX9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="I7v-im-8gM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Dyr-Hl-36I" secondAttribute="bottom" constant="20" id="J2L-gS-O6A"/>
+                            <constraint firstItem="vcq-0e-sX9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="YhV-6a-Iqp"/>
+                            <constraint firstItem="Dyr-Hl-36I" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="b0P-gE-bV7"/>
+                            <constraint firstItem="vcq-0e-sX9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="kp1-nu-irF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="deleteAllSaves" destination="fTb-kW-Wqg" id="wBR-by-8IL"/>
+                        <outlet property="loadButton" destination="tzG-Do-kC4" id="jCJ-PQ-lDI"/>
+                        <outlet property="resetButton" destination="JwQ-MU-sYs" id="BYp-ib-2Fx"/>
+                        <outlet property="saveButton" destination="8N2-AP-Roz" id="HKS-GH-K6x"/>
+                        <outlet property="sceneView" destination="vcq-0e-sX9" id="R6P-6f-YkB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
 </document>
