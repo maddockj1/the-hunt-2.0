@@ -72,7 +72,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate  {
             configuration.initialWorldMap = worldMap
         } 
         
-        sceneView.debugOptions = [.showFeaturePoints]
+        //sceneView.debugOptions = [.showFeaturePoints]
         sceneView.session.run(configuration, options: options)
     }
     
