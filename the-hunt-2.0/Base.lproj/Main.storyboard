@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,12 +15,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="the_hunt_2_0" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" userLabel="ARSceneView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0e-sX9">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-0e-sX9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </arscnView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dyr-Hl-36I" userLabel="buttons">
                                 <rect key="frame" x="45" y="603" width="285" height="44"/>
@@ -73,7 +72,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="thehuntinstruc" translatesAutoresizingMaskIntoConstraints="NO" id="xGV-7e-ne6">
-                                <rect key="frame" x="16" y="44" width="343" height="579"/>
+                                <rect key="frame" x="35.666666666666657" y="78.666666666666686" width="343" height="579"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="1Ua-Hp-bep"/>
                                     <constraint firstAttribute="height" constant="579" id="rcz-d1-QVo"/>
@@ -83,7 +82,11 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="xGV-7e-ne6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AD0-A9-6Px"/>
+                            <constraint firstItem="vcq-0e-sX9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="G6U-GA-hGm"/>
                             <constraint firstItem="xGV-7e-ne6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Hqv-gz-bzT"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="vcq-0e-sX9" secondAttribute="bottom" id="N12-jL-Esn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vcq-0e-sX9" secondAttribute="trailing" id="fxE-VX-eW9"/>
+                            <constraint firstItem="vcq-0e-sX9" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="pQS-MD-9bA"/>
                             <constraint firstItem="xGV-7e-ne6" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ydR-AO-flK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
